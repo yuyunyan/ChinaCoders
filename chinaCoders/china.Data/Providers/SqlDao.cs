@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sabio.Data
+namespace chinaCoders.Data
 {
-    internal sealed class SqlDao : Sabio.Data.Providers.IDao
+    internal sealed class SqlDao : chinaCoders.Data.Providers.IDao
     {
         #region - Private Members -
         private static SqlDao _instance = null;

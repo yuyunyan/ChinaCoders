@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sabio.Data
+namespace chinaCoders.Data
 {
     public class UniqueIdTable : IEnumerable<SqlDataRecord>
     {
