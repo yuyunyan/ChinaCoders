@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-namespace Sabio.Data.Providers
+namespace chinaCoders.Data.Providers
 {
 	public interface IDao
 	{
