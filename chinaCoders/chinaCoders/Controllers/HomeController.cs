@@ -26,5 +26,12 @@ namespace chinaCoders.Controllers
 
             return View();
         }
+        public ActionResult text()
+        {
+            ViewBag.Message = "Your text page.";
+
+            return View("text");
+        }
+
     }
 }
