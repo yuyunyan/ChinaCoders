@@ -13,11 +13,11 @@ namespace chinaCoders.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult AboutUs() 
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View("AboutUs");
         }
 
         public ActionResult Contact()
