@@ -12,10 +12,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Fav and Touch Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/content/theme/hanganTheme/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/content/theme/hanganTheme/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/content/theme/hanganTheme/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/content/theme/hanganTheme/images/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="images/ico/favicon.png">
     <!-- CSS Plugins -->
     <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css" media="screen">
@@ -167,8 +167,8 @@
                     </div><!--/.nav-collapse -->
                     <div class="nav-mini-wrapper">
                         <ul class="nav-mini sign-in">
-                            <li><a data-toggle="modal" href="#loginModal">login</a></li>
-                            <li><a data-toggle="modal" href="#registerModal">register</a></li>
+                            <li><a data-toggle="modal" href="#loginModal">Login</a></li>
+                            <li><a data-toggle="modal" href="#registerModal">Register</a></li>
                         </ul>
                     </div>
 
@@ -176,11 +176,12 @@
             </nav>
             <!-- end Navbar (Header) -->
             <!-- start Sign-in Modal -->
-            <div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title text-center">Sign-in into your account</h4>
-                                </div>
+            <div id="loginModal" class="modal fade login-box-wrapper" tabindex="-1" data-width="550" style="display: none;" data-keyboard="false" data-replace="true">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title text-center">Sign-in into your account</h4>
+                </div>
 
                                 <div class="modal-body">
                                     <div class="row gap-20">
@@ -460,13 +461,13 @@
 
                                 <h5 class="footer-title">newsletter</h5>
 
-                                <p>Subsribe to get our latest updates and oeffers</p>
+                                <p>Subscribe to get our latest updates and oeffers</p>
 
                                 <div class="footer-newsletter">
 
                                     <div class="form-group">
                                         <input class="form-control" placeholder="enter your email " />
-                                        <button class="btn btn-primary">subsribe</button>
+                                        <button class="btn btn-primary">subscribe</button>
                                     </div>
 
                                     <p class="font-italic font13">*** Don't worry, we wont spam you!</p>
