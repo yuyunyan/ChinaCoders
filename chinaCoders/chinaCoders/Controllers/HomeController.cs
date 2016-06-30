@@ -6,18 +6,18 @@ using System.Web.Mvc;
 
 namespace chinaCoders.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController 
     {
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult AboutUs() 
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View("AboutUs");
         }
 
         public ActionResult Contact()
