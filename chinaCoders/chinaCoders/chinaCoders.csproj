@@ -231,6 +231,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PublicController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +241,8 @@
     <Compile Include="Models\ViewModels\BaseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\IdentityResultException.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -447,6 +450,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\bower_components\angular-dropzone\lib\angular-dropzone.js" />
     <Content Include="Scripts\bower_components\angular-route\.bower.json" />
     <Content Include="Scripts\bower_components\angular-route\angular-route.min.js.map" />
     <Content Include="Scripts\bower_components\angular-route\bower.json" />
@@ -497,6 +501,16 @@
     <Content Include="Content\theme\hanganTheme\icons\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
     <Content Include="Content\theme\hanganTheme\icons\simple-line-icons\fonts\Simple-Line-Icons.woff" />
     <Content Include="Content\theme\hanganTheme\icons\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="Scripts\bower_components\angular-dropzone\.bower.json" />
+    <Content Include="Scripts\bower_components\angular-dropzone\bower.json" />
+    <Content Include="Scripts\bower_components\angular-dropzone\CHANGELOG.md" />
+    <Content Include="Scripts\bower_components\angular-dropzone\LICENSE" />
+    <Content Include="Scripts\bower_components\angular-dropzone\README.md" />
+    <Content Include="Scripts\bower_components\dropzone\.bower.json" />
+    <Content Include="Scripts\bower_components\dropzone\bower.json" />
+    <Content Include="Scripts\bower_components\dropzone\downloads\css\stylus\basic.styl" />
+    <Content Include="Scripts\bower_components\dropzone\downloads\css\stylus\dropzone.styl" />
+    <Content Include="Scripts\bower_components\dropzone\downloads\readme.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bower_components\angular-route\angular-route.js" />
     <Content Include="Scripts\bower_components\angular-route\angular-route.min.js" />
@@ -505,6 +519,15 @@
     <Content Include="Scripts\bower_components\angular\angular.js" />
     <Content Include="Scripts\bower_components\angular\angular.min.js" />
     <Content Include="Scripts\bower_components\angular\index.js" />
+    <Content Include="Scripts\bower_components\dropzone\downloads\css\basic.css" />
+    <Content Include="Scripts\bower_components\dropzone\downloads\css\dropzone.css" />
+    <Content Include="Scripts\bower_components\dropzone\downloads\dropzone-amd-module.js" />
+    <Content Include="Scripts\bower_components\dropzone\downloads\dropzone-amd-module.min.js" />
+    <Content Include="Scripts\bower_components\dropzone\downloads\dropzone.js" />
+    <Content Include="Scripts\bower_components\dropzone\downloads\dropzone.min.js" />
+    <Content Include="Scripts\bower_components\dropzone\downloads\images\spritemap%402x.png" />
+    <Content Include="Scripts\bower_components\dropzone\downloads\images\spritemap.png" />
+    <Content Include="Scripts\chinaCoders\application\public\controller\loginOutController.js" />
     <Content Include="Scripts\hangan\bootstrap-modal.js" />
     <Content Include="Scripts\hangan\bootstrap-modalmanager.js" />
     <Content Include="Scripts\hangan\bootstrap-select.js" />
@@ -590,6 +613,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_hannaLayout.cshtml" />
     <Content Include="Views\Home\text.cshtml" />
+    <Content Include="Views\Public\Index.cshtml" />
+    <Content Include="Views\Public\Login.cshtml" />
+    <Content Include="Views\Public\LogOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

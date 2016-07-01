@@ -3,15 +3,26 @@
     ViewBag.Title = "text";
     Layout = "~/Views/Shared/_hannaLayout.cshtml";
 }
+<body ng-app="ChinaApp">
 
-<h2>text</h2>
+    <div ng-view> This Angular view for SPA</div>
+    <h2 ng-controller="homeController as home">text</h2>
+    <div class="container">
+        <div class="DropController as ctrl">
+            <form class="dropzone"
+                  action="/api/media"
+                  method="post"
+                  enctype="multipart/form-data"
+                  ng-dropzone
+                  dropzone="ctrl.dropzone"
+                  dropzone-config="ctrl.dropzoneConfig"
+                  event-handlers="{ 'addedfile': ctrl.dzAddedFile, 'error': ctrl.dzError }">
+                <div class="dz-message" data-dz-message><span>Your Custom Message</span></div>
+            </form>
+        </div>
+    </div>
 
-<h1> text 1</h1>
-<h1> text 1</h1>
-<h1> text 1</h1>
-<h1> text 1</h1>
-<h1> text 1</h1>
-<h1> text 1</h1>
-<h1> text 1</h1>
-<h1> text 1</h1>
-<h1> text 1</h1>
+</body>
+
+
+

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using chinaCoders.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -28,9 +29,14 @@ namespace chinaCoders.Controllers
         }
         public ActionResult text()
         {
+            BaseViewModel vm = new BaseViewModel();
+            vm.IsLoggedIn = true;
             ViewBag.Message = "Your text page.";
 
-            return View("text");
+            return View("text",vm);
+
+
+
         }
 
     }

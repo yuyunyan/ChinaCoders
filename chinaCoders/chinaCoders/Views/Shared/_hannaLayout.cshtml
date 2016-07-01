@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
+
+@model chinaCoders.Models.ViewModels.BaseViewModel
 
 <html>
 <head>
@@ -44,7 +48,7 @@
     </style>
 
 </head>
-<body class="not-transparent-header">
+<body ng-app="ChinaApp" class="not-transparent-header">
 
     <!-- start Container Wrapper -->
     <div class="container-wrapper">
@@ -170,15 +174,44 @@
                         </ul>
 
                     </div><!--/.nav-collapse -->
-                    <div class="nav-mini-wrapper">
+                    @*<div class="nav-mini-wrapper">
                         <ul class="nav-mini sign-in">
                             <li><a data-toggle="modal" href="#loginModal">login</a></li>
                             <li><a data-toggle="modal" href="#registerModal">register</a></li>
                             <li class="loginClass">  @Html.Partial("_LoginPartial")   </li>
                         </ul>
                         
-                    </div>
+                    </div>*@
+                    <div ng-controller="loginOutController as login">
+                    @if (Model.IsLoggedIn)
+                    {
+                        // @Html.Partial("_LoginPartial")
 
+                    
+                        <a role="button" ng-click="public.logOut()" class="icon userLogOutBtn">
+                            <i class="glyphicon glyphicon-remove-sign" ng-click="public.logOut()"></i>
+                        </a>
+                    
+
+
+                    }
+                    else
+                    {
+                        @*<p>Sign in Now</p>
+
+                            <ul class="nav-mini sign-in">
+                                <li><a data-toggle="modal" href="#loginModal">login</a></li>
+                                <li><a data-toggle="modal" href="#registerModal">register</a></li>
+                                
+                            </ul>*@
+
+                        <a role="button" ng-click="public.logIn()" class="icon userLogInBtn"><i class="ti-power-off text-muted"></i></a>
+
+
+                    }
+
+
+                </div>
                 </div>
             </nav>
             <!-- end Navbar (Header) -->
@@ -388,21 +421,6 @@
         </header>
         
 
-
-
-
-
-
-            <ul>
-                <li>  @Html.Partial("_LoginPartial")   </li>
-            </ul>
-            
-
-       
-
-
-
-
         <!-- start Main Wrapper -->
         <div class="main-wrapper">
             <!-- start hero-header -->
@@ -538,7 +556,132 @@
         <a href="#"><i class="ion-ios-arrow-up"></i></a>
     </div>
     <!-- end Back To Top -->
-    <!-- JS -->
+
+    <!--angularJS-->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bower_components/angular/angular.min.js"></script>
+    <script src="~/Scripts/bower_components/angular-route/angular-route.min.js"></script>
+
+    <!--Drop Zone-->
+    <script src="~/Scripts/bower_components/dropzone/downloads/dropzone.min.js"></script>
+    <script src="~/Scripts/bower_components/angular-dropzone/lib/angular-dropzone.js"></script>
+    <link href="~/Scripts/bower_components/dropzone/downloads/css/dropzone.css" rel="stylesheet" />
+
+
+    <script type="text/javascript">
+        angular.module("ChinaApp", ['ngDropzone']);
+
+        angular.module("ChinaApp").controller("homeController", function () {
+            console.log("Hello World");
+        });
+
+        angular.module("ChinaApp").controller("DropController", function () {
+            var vm = this;
+
+            vm.dzAddedFile = function (file) {
+                console.log(file);
+            };
+
+            vm.dzError = function (file, errorMessage) {
+                console.log(errorMessage);
+            };
+
+            vm.dropzoneConfig = {
+                parallelUploads: 3,
+                maxFileSize: 30
+            };
+        });
+
+        // Differnt synat from github 
+
+        //angular.module("ChinaApp")
+        //    .controller('DropController', ['$log', function($log) {
+        //        var self = this;
+        //        self.dzAddedFile = function (file) {
+        //            $log.log(file);
+        //        };
+
+        //        self.dzError = function (file, errorMessage) {
+        //            $log.log(errorMessage);
+        //        };
+
+        //        self.dropzoneConfig = {
+        //            parallelUploads: 3,
+        //            maxFileSize: 30
+        //        };
+
+        
+        //    }]);
+
+        (function () {
+            "use strict";
+
+            angular.module("ChinaApp")
+            .controller('loginOutController'/*name*/, LoginOutController/*definition*/);
+
+            LoginOutController.$inject = ['$scope', '$baseController', '$publicService', '$window'];
+
+            function LoginOutController(
+                $scope,
+                $baseController,
+                $publicService,
+                $window) {
+
+                //controllerAs with vm syntax - john papa style
+                var vm = this; //this points to a new {}
+                vm.public = null;
+
+                vm.$publicService = $publicService;
+                vm.$scope = $scope;
+
+                // **HOIST HERE**bindable members (functions) always go up top 
+                vm.logOut = _logOut;
+                vm.logIn = _logIn;
+                vm.register = _register;
+
+                // simulate inheritance
+                $baseController.merge(vm, $baseController);
+
+                // wrapper for small dependency on $scope
+                vm.notify = vm.$publicService.getNotifier($scope);
+
+                //this is like the sabio.startUp function
+
+                function _logOut() {
+                    vm.$publicService.logOut(_logOutSuccess);
+                }
+
+                function _logOutSuccess() {
+                    vm.$alertService.success("You have been logged out");
+                    $window.location.href = '/public/logIn/';
+                }
+
+                function _logIn() {
+                    $window.location.href = '/public/logIn/';
+                }
+
+                function _register() {
+                    $window.location.href = '/public/';
+                }
+
+            }
+
+        })();
+
+
+
+
+
+
+
+    </script>
+
+   
+
+    
+
+
+    <!-- hangan templete JS -->
     <script type="text/javascript" src="~/scripts/hangan/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="~/scripts/hangan/jquery-migrate-1.2.1.min.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -567,7 +710,7 @@
     <script type="text/javascript" src="~/scripts/hangan/jquery.introLoader.min.js"></script>
     <script type="text/javascript" src="~/scripts/hangan/jquery.responsivegrid.js"></script>
     <script type="text/javascript" src="~/scripts/hangan/customs.js"></script>
-
+    <!-- End hangan templete JS -->
 
 
 
